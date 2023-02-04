@@ -1,80 +1,40 @@
 <template>
   <div class="container">
-      <Header 
+      <Header
         @toggle-add-task="toggleAddTask"
         title="Task Tracker"
         :showAddTask="showAddTask"
         />
-      <div v-if="showAddTask">
-        <AddTask @add-task="addTask"/>
-      </div>
-      <Tasks 
-        @toggle-reminder="toggleReminder" 
-        @delete-task="deleteTask" :tasks="tasks"/>
+        <router-view :showAddTask="showAddTask"></router-view>
+      <Footer />  
   </div>
 </template>
 
 
 <script>
 import Header from './components/Header.vue'
-import Tasks from './components/Tasks.vue'
-import AddTask from './components/AddTask.vue'
+import Footer from './components/Footer.vue'
+
 
 export default {
   name: 'App',
   components: {
     Header, 
-    Tasks,
-    AddTask,
+    Footer
   },
   data() {
     return {
-      tasks: [],
       // the form input task only show when click on Add Task
       showAddTask: false
     }
   },
   // API to manipulate content
   methods: {
-    deleteTask(id) {
-      if(confirm('Are you sure to delete this task ?'))
-        this.tasks = this.tasks.filter(task => task.id !== id)
-    },
-    toggleReminder(id) {
-      this.tasks = this.tasks.map((task) => task.id === id ? {...task, reminder: !task.reminder} : task)
-    },
-    addTask(newTask){
-      // this.tasks.push(newTask)
-      this.tasks = [...this.tasks, newTask]
-    },
     toggleAddTask(){
       this.showAddTask = !this.showAddTask
     }
   },
-  
-  // get data on API
-  created() {
-    this.tasks = [
-      {
-        id: 1,
-        text: 'Comple Vue Crash Course',
-        day: 'Feb 3 2023',
-        reminder: false,
-      },
-      {
-        id: 2,
-        text: 'Workout at 8pm',
-        day: 'Feb 3 2023',
-        reminder: true,
-      },
-      {
-        id: 3,
-        text: 'Aventuring in Elden ring at 6pm',
-        day: 'Feb 3 2023',
-        reminder: true,
-      },
-    ]
-  }
+  routerView: ['showAddTask']
 }
 </script>
 

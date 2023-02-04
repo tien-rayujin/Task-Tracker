@@ -1,22 +1,22 @@
 {
-    "tasks": [
-        {
-            "id": 1,
-            "text": "Comple Vue Crash Course",
-            "day": "Feb 3 2023",
-            "reminder": false
-          },
-          {
-            "id": 2,
-            "text": "Workout",
-            "day": "Feb 3 2023 at 8pm",
-            "reminder": true
-          },
-          {
-            "id": 3,
-            "text": "Aventuring in Elden ring",
-            "day": "Feb 3 2023 at 6pm",
-            "reminder": true
-          }
-    ]
+  "tasks": [
+    {
+      "text": "Learn how to use Selinum",
+      "day": "Feb 4th 2023 3pm",
+      "reminder": true,
+      "id": 1
+    },
+    {
+      "text": "Sleeping at least 1h",
+      "day": "Feb 4th 2023 2pm",
+      "reminder": true,
+      "id": 2
+    },
+    {
+      "text": "Learn how to use Jest",
+      "day": "Feb 4th 2023 5pm",
+      "reminder": true,
+      "id": 3
+    }
+  ]
 }
